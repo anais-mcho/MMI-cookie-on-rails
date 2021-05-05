@@ -10,7 +10,7 @@
 
 <div class="card-body">
   <div class="progress mb-4">
-    <div class="progress-bar bg-info" role="progressbar" style="width: <%= @recipes_list.percent_complete %>" aria-valuenow="<%= @recipes_list.percent_complete %>" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="progress-bar bg-info" role="progressbar" style="width: <%= @recipes_list.percent_complete %>%" aria-valuenow="<%= @recipes_list.percent_complete %>" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
   <ul class='list-group'>
   <% @recipes_list.todo_items.each do |todo_item| %>

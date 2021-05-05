@@ -33,7 +33,7 @@ class TodoItemsController < ApplicationController
 
   # PUT recipes_lists/1/todo_items/1
   def update
-    if @todo_item.update_attribute(todo_item_params)
+    if @todo_item.update(todo_item_params)
       redirect_to([@todo_item.recipes_list, @todo_item], notice: 'Todo item was successfully updated.')
     else
       render action: 'edit'

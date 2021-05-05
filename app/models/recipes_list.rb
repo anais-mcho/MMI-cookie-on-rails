@@ -3,7 +3,7 @@ class RecipesList < ApplicationRecord
 
   def percent_complete
     return 0 if total_items == 0
-    ( 100 * completed_items.to_f / total_items).round(1)
+    return ( 100 * completed_items.to_f / total_items).round(1)
   end
 
   def completed_items
