@@ -1,21 +1,29 @@
 <div class="card-header d-flex justify-content-between">
-  <span>
-    <%= @recipes_list.title %>
-  </span>
-  <%= link_to 'Edit', edit_recipes_list_path(@recipes_list), class: 'btn btn-secondary btn-sm' %>
+  <div>
+    <h5 class='m-0'><b><%= @recipes_list.title %></b></h5>
+    <p class='text-secondary m-0'><small><%= @recipes_list.percent_complete %>% complété (<%= @recipes_list.completed_items %>/<%= @recipes_list.total_items %> étapes)</small></p>
+  </div>
+  <div>
+    <%= link_to 'Edit', edit_recipes_list_path(@recipes_list), class: 'btn btn-secondary' %>
+  </div>
 </div>
 
-<ul class='list-group'>
+<div class="card-body">
+  <div class="progress mb-4">
+    <div class="progress-bar bg-info" role="progressbar" style="width: <%= @recipes_list.percent_complete %>" aria-valuenow="<%= @recipes_list.percent_complete %>" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  <ul class='list-group'>
   <% @recipes_list.todo_items.each do |todo_item| %>
     <li class='list-group-item'>
       <div class="d-flex justify-content-between">
         <span>
           <%= todo_item.description %>
         </span>
-        <%= link_to '#', class: 'btn btn-success' do %>
+        <%= link_to '#', class: 'btn btn-info' do %>
           <i class='fas fa-check'></i>
         <% end %>
       </div>
     </li>
   <% end %>
-</ul>
+  </ul>
+</div>
