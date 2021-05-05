@@ -1,27 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="card-header d-flex justify-content-between">
+  <span>
+    Liste des recettes
+  </span>
+ 
+  <%= link_to 'New Recipes List', new_recipes_list_path %>
+</div>
 
-<h1>Recipes Lists</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @recipes_lists.each do |recipes_list| %>
-      <tr>
-        <td><%= recipes_list.title %></td>
-        <td><%= link_to 'Show', recipes_list %></td>
-        <td><%= link_to 'Edit', edit_recipes_list_path(recipes_list) %></td>
-        <td><%= link_to 'Destroy', recipes_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Recipes List', new_recipes_list_path %>
+<ul class='list-group'>
+  <% @recipes_lists.each do |recipes_list| %>
+    <li class='list-group-item'>
+      <%= link_to recipes_list.title, recipes_list %>
+    </li>
+  <% end %>
+</ul>
