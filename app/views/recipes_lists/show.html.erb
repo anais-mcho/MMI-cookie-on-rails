@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @recipes_list.title %>
+</p>
+
+<ul>
+  <%@recipes_list.todo_items.each do |todo_item| %>
+    <li><%= todo_item.description %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_recipes_list_path(@recipes_list) %> |
+<%= link_to 'Back', recipes_lists_path %>
