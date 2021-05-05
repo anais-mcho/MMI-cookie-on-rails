@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_05_05_100305) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "recipes_lists", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_100305) do
     t.text "description"
     t.boolean "completed"
     t.datetime "completed_at"
-    t.integer "recipes_list_id", null: false
+    t.bigint "recipes_list_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipes_list_id"], name: "index_todo_items_on_recipes_list_id"
