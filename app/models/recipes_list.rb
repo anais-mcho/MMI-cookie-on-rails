@@ -13,4 +13,28 @@ class RecipesList < ApplicationRecord
   def total_items
     @total_items ||= todo_items.count
   end
+
+  def status
+    case percent_complete.to_i
+    when 0
+      'Non commencée'
+    when 100
+      'Terminée'
+    else 
+      'En cours'
+    end
+  end
+
+  def badge_color
+    case percent_complete.to_i
+    when 0
+      'dark'
+    when 100
+      'info'
+    else 
+      'primary'
+    end
+
+  end
+
 end
