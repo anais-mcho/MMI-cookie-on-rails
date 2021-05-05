@@ -1,15 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="card-header d-flex justify-content-between">
+  <span>
+    <%= @recipes_list.title %>
+  </span>
+  <%= link_to 'Edit', edit_recipes_list_path(@recipes_list), class: 'btn btn-secondary btn-sm' %>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @recipes_list.title %>
-</p>
-
-<ul>
-  <%@recipes_list.todo_items.each do |todo_item| %>
-    <li><%= todo_item.description %></li>
+<ul class='list-group'>
+  <% @recipes_list.todo_items.each do |todo_item| %>
+    <li class='list-group-item'>
+      <div class="d-flex justify-content-between">
+        <span>
+          <%= todo_item.description %>
+        </span>
+        <%= link_to '#', class: 'btn btn-success' do %>
+          <i class='fas fa-check'></i>
+        <% end %>
+      </div>
+    </li>
   <% end %>
 </ul>
-
-<%= link_to 'Edit', edit_recipes_list_path(@recipes_list) %> |
-<%= link_to 'Back', recipes_lists_path %>
